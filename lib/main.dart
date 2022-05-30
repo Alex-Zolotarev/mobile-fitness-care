@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'features/create_profile/view/create_profile_view.dart';
 
+
 void main() {
   runApp(const ScreenWidget());
 }

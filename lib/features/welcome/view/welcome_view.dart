@@ -14,7 +14,11 @@ class WelcomeView extends StatelessWidget {
         Center(
           child: Column(
             children: const <Widget>[
-              ImageWidget(imageName: "assets/images/photo1.png"),
+              ImageWidget(
+                  imageName: "assets/images/photo1.png",
+              width: 268,
+              height: 268,
+              top: 138,),
               TextWidget(
                 color: Color(0xFF7C6DDB),
                 width: 124,
@@ -36,7 +40,8 @@ class WelcomeView extends StatelessWidget {
         Positioned(
           bottom: 52,
           width: MediaQuery.of(context).size.width,
-          child: const Center(child: GradientButton()),
+          child:  Center(child: GradientButton(width: 315, height: 60,text: 'Get Started',radius: 99,color_left: Color(0xff9DCEFF),color_right: Color(0xff92A3FD),)
+          ),
         ),
       ],
     );
