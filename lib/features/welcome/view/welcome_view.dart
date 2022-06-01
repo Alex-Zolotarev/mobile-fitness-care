@@ -40,7 +40,17 @@ class WelcomeView extends StatelessWidget {
         Positioned(
           bottom: 52,
           width: MediaQuery.of(context).size.width,
-          child:  Center(child: GradientButton(width: 315, height: 60,text: 'Get Started',radius: 99,color_left: Color(0xff9DCEFF),color_right: Color(0xff92A3FD),)
+          child:  const Center(
+              child: GradientButton(
+                width: 315,
+                height: 60,
+                text: 'Get Started',
+                fontSize: 16,
+                radius: 99,
+                color_left: Color(0xff9DCEFF),
+                color_right: Color(0xff92A3FD),
+                left: 98,
+              )
           ),
         ),
       ],

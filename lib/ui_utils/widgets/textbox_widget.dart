@@ -6,13 +6,16 @@ class TextBoxWidget extends StatelessWidget {
       {Key? key,
         required this.text,
         required this.icon,
+        required this.height
       }) : super(key: key);
 
   final String text;
   final Icon icon;
+  final double height;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      height: height,
       child: TextField(
         decoration: InputDecoration(
           enabledBorder:  const OutlineInputBorder(

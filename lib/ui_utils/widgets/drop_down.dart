@@ -3,7 +3,9 @@ import 'package:flutter_svg/svg.dart';
 
 
 class DropdownItems extends StatefulWidget {
-  const DropdownItems({Key? key}) : super(key: key);
+  const DropdownItems({Key? key, required this.height}) : super(key: key);
+
+  final double height;
 
   @override
   State<DropdownItems> createState() => _DropdownItemsState();
@@ -25,15 +27,16 @@ class _DropdownItemsState extends State<DropdownItems> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      height: widget.height,
       child: DropdownButtonFormField(
         hint: const Text("Choose Gender"),
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Color(0xffF7F8F8), width: 2),
+            borderSide: const BorderSide(color: Color(0xffF7F8F8)),
             borderRadius: BorderRadius.circular(14),
           ),
           border: OutlineInputBorder(
-            borderSide: const BorderSide(color: Color(0xffF7F8F8), width: 2),
+            borderSide: const BorderSide(color: Color(0xffF7F8F8)),
             borderRadius: BorderRadius.circular(14),
 
           ),
