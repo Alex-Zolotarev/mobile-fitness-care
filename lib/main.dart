@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'features/create_profile/create_profile.dart';
 import 'features/create_profile/view/create_profile_view.dart';
 import 'features/my_profile/view/my_profile_view.dart';
+import 'features/progress/progress_view/progress_view.dart';
 import 'features/workout_view/view/workout_view.dart';
 
 
@@ -18,7 +19,7 @@ class ScreenWidget extends StatelessWidget {
     return const MaterialApp(
       home: Scaffold(
       //   //appBar: AppBar(),
-        body: WorkoutView(),
+        body: ProgressView(),
       //   body: MyProfileView(),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_1/ui_utils/widgets/gradient_button.dart';
 import 'package:task_1/ui_utils/widgets/image_widget.dart';
 
 import '../../../ui_utils/widgets/text_widget.dart';
@@ -9,6 +10,7 @@ class WorkoutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       backgroundColor: const Color(0xffFFFFFF),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -35,8 +37,8 @@ class WorkoutView extends StatelessWidget {
             width: 391,
             height: 472,
             child: const Padding(
-              padding: EdgeInsets.only(left: 63, right: 60),
-              child: ImageWidget(imageName: "assets/images/smart.png", top: 76, width: 268, height: 268),
+              padding: EdgeInsets.only(left: 54),
+              child: Center(child: ImageWidget(imageName: "assets/images/smart.png", top: 76, width: 268, height: 268)),
             ),
           ),
           DraggableScrollableSheet(
@@ -55,6 +57,17 @@ class WorkoutView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
+                      padding: const EdgeInsets.only(left: 163, top: 4),
+                      child: Container(
+                        width: 50,
+                        height: 5,
+                        decoration: const BoxDecoration(
+                            color: Color(0xff1D1617),
+                            borderRadius: BorderRadius.all(Radius.circular(50))
+                        ),
+                      ),
+                    ),
+                    Padding(
                       padding: const EdgeInsets.only(top: 48, left: 29),
                       child: SizedBox(
                         height: 47,
@@ -65,7 +78,7 @@ class WorkoutView extends StatelessWidget {
                           children: [
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
+                              children:  const [
                                 TextWidget(
                                     text: "Fullbody Workout",
                                     color: Color(0xff1D1617),
@@ -395,7 +408,10 @@ class WorkoutView extends StatelessWidget {
           ),
         ],
       ),
-
+      floatingActionButton: const Padding(
+        padding: EdgeInsets.only(bottom: 53),
+        child: GradientButton(width: 315, height: 60, fontSize: 16, text: "Start Workout", radius: 99, colorLeft: Color(0xff9DCEFF), colorRight: Color(0xff92A3FD), left: 85),
+      )
     );
   }
 }

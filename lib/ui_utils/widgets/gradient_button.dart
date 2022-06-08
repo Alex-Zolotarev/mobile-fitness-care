@@ -59,7 +59,7 @@ class _GradientButtonState extends State<GradientButton> {
                 child:  Padding(
                   padding:  EdgeInsets.only(left: widget.left),
                   child: Text(widget.text,
-                      textAlign: TextAlign.center,
+                      //textAlign: TextAlign.center,
                       style: TextStyle(
                         color: const Color(0xFFFFFFFF),
                         fontSize: widget.fontSize,
