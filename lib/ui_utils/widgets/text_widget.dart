@@ -20,8 +20,6 @@ class TextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: top),
-      alignment: Alignment.center,
-
       width: width,
       child: Text(
         text,
