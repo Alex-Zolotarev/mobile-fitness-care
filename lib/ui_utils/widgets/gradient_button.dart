@@ -11,10 +11,10 @@ class GradientButton extends StatefulWidget {
         required this.fontSize,
         required this.text,
         required this.radius,
-        required this.color_left,
-        required this.color_right,
+        required this.colorLeft,
+        required this.colorRight,
         required this.left,
-
+        this.onTap
       }) : super(key: key);
 
   final double fontSize;
@@ -23,8 +23,10 @@ class GradientButton extends StatefulWidget {
   final double left;
   final double radius;
   final String text;
-  final Color color_left;
-  final Color color_right;
+  final Color colorLeft;
+  final Color colorRight;
+  final void Function()? onTap;
+
   @override
   State<GradientButton> createState() => _GradientButtonState();
 }
@@ -38,13 +40,13 @@ class _GradientButtonState extends State<GradientButton> {
       width: widget.width,
       height: widget.height,
       child: RaisedButton(
-        onPressed: () {},
+        onPressed: widget.onTap,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(widget.radius)),
         padding: const EdgeInsets.all(0.0),
         child: Ink(
           decoration:  BoxDecoration(
             gradient: LinearGradient(
-              colors: [widget.color_left, widget.color_right],
+              colors: [widget.colorLeft, widget.colorRight],
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
             ),

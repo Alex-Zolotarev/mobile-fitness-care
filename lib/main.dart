@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'features/create_profile/create_profile.dart';
 import 'features/create_profile/view/create_profile_view.dart';
 import 'features/my_profile/view/my_profile_view.dart';
 
@@ -15,8 +16,9 @@ class ScreenWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: Scaffold(
-        //appBar: AppBar(),
+      //   //appBar: AppBar(),
         body: MyProfileView(),
+      //   body: MyProfileView(),
       ),
     );
   }

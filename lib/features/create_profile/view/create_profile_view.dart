@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task_1/features/create_profile/bloc/create_profile_bloc.dart';
 import 'package:task_1/ui_utils/widgets/textbox_widget.dart';
 
 import '../../../ui_utils/widgets/drop_down.dart';
@@ -11,6 +13,8 @@ class CreateProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CreateProfileBloc _bloc = BlocProvider.of<CreateProfileBloc>(context);
+
     return Stack(
       children: [
         SingleChildScrollView(
@@ -34,8 +38,8 @@ class CreateProfileView extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(top: 15, left: 30, right: 30),
                 child: TextBoxWidget(
-                    text: "Date of Birth",
-                    icon: Icon(Icons.calendar_today),
+                  text: "Date of Birth",
+                  icon: Icon(Icons.calendar_today),
                   height: 48,
                 ),
               ),
@@ -47,11 +51,28 @@ class CreateProfileView extends StatelessWidget {
                     SizedBox(
                       width: MediaQuery.of(context).size.width - 150,
                       child: const TextBoxWidget(
-                          text: "Your Weight",
-                          icon: Icon(Icons.monitor_weight),
-                      height: 48,),
+                        text: "Your Weight",
+                        icon: Icon(Icons.monitor_weight),
+                        height: 48,
+                      ),
                     ),
-                    GradientButton( text: 'KG',fontSize: 12, width: 48, height: 48, left: 10, radius: 14,color_left: Color(0xffEEA4CE), color_right: Color(0xffC58BF2),),
+                    BlocBuilder<CreateProfileBloc, CreateProfileState>(
+                      builder: (context, state) {
+                        return GradientButton(
+                          text: state is PageState ? state.typeOfWeight : "",
+                          fontSize: 12,
+                          width: 48,
+                          height: 48,
+                          left: 10,
+                          radius: 14,
+                          colorLeft: const Color(0xffEEA4CE),
+                          colorRight: const Color(0xffC58BF2),
+                          onTap: () {
+                            _bloc.add(ClickedWeightButtonEvent());
+                          },
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),
@@ -63,11 +84,28 @@ class CreateProfileView extends StatelessWidget {
                     SizedBox(
                       width: MediaQuery.of(context).size.width - 150,
                       child: const TextBoxWidget(
-                          text: "You Height",
-                          icon: Icon(Icons.arrow_downward),
-                      height: 48,),
+                        text: "You Height",
+                        icon: Icon(Icons.arrow_downward),
+                        height: 48,
+                      ),
                     ),
-                    const GradientButton( text: 'CM',fontSize: 12, width: 48, height: 48, left: 10, radius: 14,color_left: Color(0xffEEA4CE), color_right: Color(0xffC58BF2),),
+                     BlocBuilder<CreateProfileBloc, CreateProfileState>(
+                       builder: (context, state) {
+                         return  GradientButton(
+                          text: state is PageState ? state.typeOfHeight : "",
+                          fontSize: 12,
+                          width: 48,
+                          height: 48,
+                          left: 10,
+                          radius: 14,
+                          colorLeft: const Color(0xffEEA4CE),
+                          colorRight: const Color(0xffC58BF2),
+                           onTap: () {
+                             _bloc.add(ClickedHeightButtonEvent());
+                           },
+                          );
+                       }
+                     ),
                   ],
                 ),
               ),
@@ -94,13 +132,12 @@ class CreateProfileView extends StatelessWidget {
                     fontSize: 16,
                     radius: 99,
                     left: 127,
-                    color_left: Color(0xff9DCEFF),
-                    color_right: Color(0xff92A3FD)),
+                    colorLeft: Color(0xff9DCEFF),
+                    colorRight: Color(0xff92A3FD)),
               )
             ],
           ),
         ),
-
       ],
     );
   }

@@ -47,8 +47,8 @@ class WelcomeView extends StatelessWidget {
                 text: 'Get Started',
                 fontSize: 16,
                 radius: 99,
-                color_left: Color(0xff9DCEFF),
-                color_right: Color(0xff92A3FD),
+                colorLeft: Color(0xff9DCEFF),
+                colorRight: Color(0xff92A3FD),
                 left: 98,
               )
           ),
